@@ -1,7 +1,7 @@
 ---
 title: "Alcohol vs Seat choice"
-author: "Your Name"
-date: "Fall 2020"
+author: "Daniella Sanchez"
+date: "Summer 2021"
 output: html_document
 ---
 
@@ -28,14 +28,34 @@ basicCN <- ggplot(davisdata,aes(y=alcohol,x=Seat))
 basicCN + geom_boxplot()
 ```
   
+```{r}
+boxplot(alcohol~Seat,data=davisdata)
+```  
+  
+ It appears that those who sit in the back tend to drink more than those who sit in the middle and front. Those in the middle drink more than those who sit in the front. Over 75% of people who sit in the back drink more than anyone sitting in the middle and front. 
   
 ### get fancy  
+```{r}
+basicCN <- ggplot(davisdata,aes(x=Seat,y=alcohol))
+
+basicCN + geom_boxplot()
+```
+
+ As shown in the boxplot, the back row is higher up, than the front and the middle. It appears that using data we may reject the null hypothesis. basing on these box plots, there is a clear difference in how much people drink depending on their seating position.
 
 ```{r}
 basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
 ```
 
+In this boxplot, we can tell the difference of the box of the back row is slightly bigger than the first boxplot we saw above. 
+
 ## Numerical Summarys 
+
+```{r}
+favstats(momheight~Sex,data=davisdata)
+```
+
+The back row is different with their mean being 9.6. The middle row being 3.2. The front row holding the lowest at 1.8
 
 ## Inferential Tests
 
