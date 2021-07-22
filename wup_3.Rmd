@@ -59,6 +59,21 @@ The back row is different with their mean being 9.6. The middle row being 3.2. T
 
 ## Inferential Tests
 
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+
+We will reject this hypothesis, but we will see clarification on which rows were different from other rows.
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
+Using the Tukey plot box we can tell that the front is different from the back and the middle is different from the back. However there is no difference from the middle and the front.
+
 ## Conclusions
+
+We went over the steps of different plot boxes and which one was bigger or smaller than the other and whichc one had more or less. 
 
 
